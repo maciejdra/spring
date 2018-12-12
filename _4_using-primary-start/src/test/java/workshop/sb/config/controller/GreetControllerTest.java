@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static workshop.sb.config.controller.service.GreetService.MSG;
+import static workshop.sb.config.controller.service.impl.GreetServiceFirstImplementation.first;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,7 +26,7 @@ public class GreetControllerTest {
     public void shouldReturnGreetMsg() throws Exception {
         this.mockMvc.perform(get("/greet"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(MSG));
+                .andExpect(content().string(MSG+first));
     }
 }
 
